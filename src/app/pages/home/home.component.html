@@ -1,0 +1,5 @@
+<div class="center">
+    <form #input="ngForm" (submit)="handleSubmit(input.value.handle)">
+        <input type="text" pInputText placeholder="Enter your CF Handle" name="handle" ngModel>
+    </form>
+</div>

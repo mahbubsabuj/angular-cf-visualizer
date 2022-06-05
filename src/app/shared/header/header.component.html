@@ -1,0 +1,9 @@
+<p-menubar *ngIf="items" [model]="items">
+  <button
+    pButton
+    pRipple
+    class="p-button-danger"
+    [icon]="!isDarkTheme ? 'pi pi-moon' : 'pi pi-sun'"
+    (click)="switchTheme()"
+  ></button>
+</p-menubar>

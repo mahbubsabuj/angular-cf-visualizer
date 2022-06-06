@@ -30,6 +30,8 @@ import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { MinuteSecondsPipe } from './Pipes/minute-seconds.pipe';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { MinuteSecondsPipe } from './Pipes/minute-seconds.pipe';
     MenubarModule,
     ButtonModule,
     InputTextModule,
+    HotToastModule.forRoot(),
     FormsModule,
     HttpClientModule,
     TabViewModule,
@@ -63,7 +66,8 @@ import { MinuteSecondsPipe } from './Pipes/minute-seconds.pipe';
     DialogModule,
     DropdownModule,
     ProgressBarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

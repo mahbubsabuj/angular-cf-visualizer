@@ -1,1 +1,36 @@
-<p>submission-stats-table works!</p>
+<ng-container *ngIf="userSubmissions">
+    <p-table [value]="[{}]" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Submission stats</th>
+            <th><a href="https://codeforces.com/profile/{{ user }}">{{ user }}</a></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body">
+          <tr>
+            <td>Problem Tried</td>
+            <td>1594</td>
+          </tr>
+          <tr>
+            <td>Problem Solved</td>
+            <td>1482</td>
+          </tr>
+          <tr>
+            <td>Average attempts</td>
+            <td>2.340</td>
+          </tr>
+          <tr>
+            <td>Max attempts</td>
+            <td>21(1622C)</td>
+          </tr>
+          <tr>
+            <td>Solved with one submission</td>
+            <td>729</td>
+          </tr>
+          <tr>
+            <td>Max accepted submissions</td>
+            <td>6(86D)</td>
+          </tr>
+        </ng-template>
+      </p-table>
+</ng-container>

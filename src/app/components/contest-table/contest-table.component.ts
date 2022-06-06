@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IContest } from 'src/app/models/contest.model';
+import { IContest } from '../../models/contest.model';
 
 @Component({
   selector: 'contest-table',

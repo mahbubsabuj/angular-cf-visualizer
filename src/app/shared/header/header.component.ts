@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { ThemeService } from 'src/app/services/theme.service';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'header',

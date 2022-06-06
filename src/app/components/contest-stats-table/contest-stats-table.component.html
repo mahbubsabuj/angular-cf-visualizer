@@ -1,1 +1,58 @@
-<p>contest-stats-table works!</p>
+<ng-container *ngIf="contestTableInfo">
+  <p-table [value]="[{}]" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Contest stats</th>
+        <th>
+          <a href="https://codeforces.com/profile/{{ user }}">{{ user }}</a>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body">
+      <tr>
+        <td>Number of contests (rated)</td>
+        <td>{{ contestTableInfo.contestCount }}</td>
+      </tr>
+      <tr>
+        <td>Best rank</td>
+        <td>
+          {{ contestTableInfo.bestRank }}(<a href="">{{
+            contestTableInfo.bestRankContestId
+          }}</a
+          >)
+        </td>
+      </tr>
+      <tr>
+        <td>Worst rank</td>
+        <td>
+          {{ contestTableInfo.worstRank }}(<a href="">{{
+            contestTableInfo.worstRankContestId
+          }}</a
+          >)
+        </td>
+      </tr>
+      <tr>
+        <td>Max up</td>
+        <td>
+          {{ contestTableInfo.maxUp }}(<a href="">{{
+            contestTableInfo.maxUpContestId
+          }}</a
+          >)
+        </td>
+      </tr>
+      <tr>
+        <td>Max down</td>
+        <td>
+          {{ contestTableInfo.maxDown }}(<a href="">{{
+            contestTableInfo.maxDownContestId
+          }}</a
+          >)
+        </td>
+      </tr>
+      <tr>
+        <td>Current rating</td>
+        <td>{{ contestTableInfo.currentRating }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

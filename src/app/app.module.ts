@@ -29,6 +29,7 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { MinuteSecondsPipe } from './Pipes/minute-seconds.pipe';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
     HeaderComponent,
     FooterComponent,
     ContestTableComponent,
+    MinuteSecondsPipe,
   ],
   imports: [
     BrowserModule,

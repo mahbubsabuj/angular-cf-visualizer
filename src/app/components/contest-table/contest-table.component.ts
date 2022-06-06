@@ -12,5 +12,10 @@ export class ContestTableComponent implements OnInit {
   @Input() title: string = '';
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title = this.contests.length + " " + this.title;
+    if (this.contests.length === 0 || this.contests.length > 1) {
+      this.title += 's';
+    }
+  }
 }

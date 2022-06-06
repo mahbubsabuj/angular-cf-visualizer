@@ -10,7 +10,7 @@ import { KontestsService } from 'src/app/services/kontests.service';
 export class ContestsComponent implements OnInit {
   query: string = '';
   sites: string[] = [];
-  contests: IContest[] = [];
+  contests: IContest[] | null = null;
   futureContests: IContest[] = [];
   runningContests: IContest[] = [];
   constructor(private kontestService: KontestsService) {}

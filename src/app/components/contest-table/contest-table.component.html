@@ -35,8 +35,18 @@
           <div class="p-d-flex p-jc-between p-ai-center">Name</div>
         </th>
         <th>
+            <div class="p-d-flex p-jc-between p-ai-center">Start Time</div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">End Time</div>
+          </th>
+          <th>
+            <div class="p-d-flex p-jc-between p-ai-center">Duration</div>
+          </th>
+        <th>
           <div class="p-d-flex p-jc-between p-ai-center">Site</div>
         </th>
+        
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-contest>
@@ -44,6 +54,15 @@
         <td>
           {{ contest.name }}
         </td>
+        <td>
+            <span class="image-text">{{ contest.start_time | date: 'MMM d, y h:mm:ss a' }}</span>
+          </td>
+          <td>
+            <span class="image-text">{{ contest.end_time | date }}</span>
+          </td>
+          <td>
+            <span class="image-text">{{ contest.duration | minuteSeconds }}</span>
+          </td>
         <td>
           <span class="image-text">{{ contest.site }}</span>
         </td>

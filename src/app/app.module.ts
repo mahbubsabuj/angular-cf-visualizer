@@ -32,6 +32,8 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { MinuteSecondsPipe } from './Pipes/minute-seconds.pipe';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { CardModule } from 'primeng/card';
+import { SubmissionStatsTableComponent } from './components/submission-stats-table/submission-stats-table.component';
+import { ContestStatsTableComponent } from './components/contest-stats-table/contest-stats-table.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { CardModule } from 'primeng/card';
     FooterComponent,
     ContestTableComponent,
     MinuteSecondsPipe,
+    SubmissionStatsTableComponent,
+    ContestStatsTableComponent,
   ],
   imports: [
     BrowserModule,

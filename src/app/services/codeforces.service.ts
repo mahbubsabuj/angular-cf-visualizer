@@ -6,6 +6,7 @@ import {
   IUserSubmission,
   IUserSubmissionRoot,
 } from '../models/submission.model';
+import { IRatedContest, IRatedContestRoot } from '../models/ratedContest.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -22,5 +23,15 @@ export class CodeforcesService {
         })
       );
   }
-
+  getUserRatedContests(cfHandle: string): Observable<IRatedContest[]> {
+    return this.httpClient
+      .get<IRatedContestRoot>(`${environment.cfBaseURL}/user.rating`, {
+        params: new HttpParams().set('handle', cfHandle),
+      })
+      .pipe(
+        switchMap((response: IRatedContestRoot) => {
+          return of(response.result);
+        })
+      );
+  }
 }

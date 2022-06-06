@@ -13,7 +13,7 @@ export class CodeforcesService {
   constructor(private httpClient: HttpClient) {}
   getUserSubmission(cfHandle: string): Observable<IUserSubmission[]> {
     return this.httpClient
-      .get<IUserSubmissionRoot>(`${environment.baseURL}/user.status`, {
+      .get<IUserSubmissionRoot>(`${environment.cfBaseURL}/user.status`, {
         params: new HttpParams().set('handle', cfHandle).set('from', 1),
       })
       .pipe(
@@ -22,5 +22,5 @@ export class CodeforcesService {
         })
       );
   }
-  
+
 }

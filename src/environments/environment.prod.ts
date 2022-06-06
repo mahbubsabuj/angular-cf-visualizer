@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  baseURL: 'https://codeforces.com/api',
+  cfBaseURL: 'https://codeforces.com/api',
+  kontestBaseURL: 'https://kontests.net/api/v1/all'
 };

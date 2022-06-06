@@ -1,5 +1,91 @@
 <div class="center">
-    <form #input="ngForm" (submit)="handleSubmit(input.value.handle)">
-        <input type="text" pInputText placeholder="Enter your CF Handle" name="handle" ngModel>
-    </form>
+  <form #input="ngForm" (submit)="handleSubmit(input.value.handle)">
+    <input
+      type="text"
+      pInputText
+      placeholder="Enter your CF Handle"
+      name="handle"
+      ngModel
+    />
+  </form>
+</div>
+
+<div class="grid contest-info">
+  <div class="col-12 sm:col-6">
+    <div class="container">
+      <!-- <h1 style="display: flex; justify-content: center;">Bangladesh</h1> -->
+      <p-table [value]="[{}]" responsiveLayout="scroll">
+        <ng-template pTemplate="header" >
+          <tr>
+            <th>Contest stats</th>
+            <th>newb_ie</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body">
+          <tr>
+            <td>Number of contests (rated)</td>
+            <td>97</td>
+          </tr>
+          <tr>
+            <td>Best rank</td>
+            <td>1040(1506)</td>
+          </tr>
+          <tr>
+            <td>Worst rank</td>
+            <td>12850(1328)</td>
+          </tr>
+          <tr>
+            <td>Max up</td>
+            <td>1366(1284)</td>
+          </tr>
+          <tr>
+            <td>Max down</td>
+            <td>-134(1521)</td>
+          </tr>
+          <tr>
+            <td>Current rating</td>
+            <td>1434</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="col-12 sm:col-6">
+    <div class="container">
+      <p-table [value]="[{}]" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Contest stats</th>
+            <th>newb_ie</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body">
+          <tr>
+            <td>Number of contests (rated)</td>
+            <td>97</td>
+          </tr>
+          <tr>
+            <td>Best rank</td>
+            <td>1040(1506)</td>
+          </tr>
+          <tr>
+            <td>Worst rank</td>
+            <td>12850(1328)</td>
+          </tr>
+          <tr>
+            <td>Max up</td>
+            <td>1366(1284)</td>
+          </tr>
+          <tr>
+            <td>Max down</td>
+            <td>-134(1521)</td>
+          </tr>
+          <tr>
+            <td>Current rating</td>
+            <td>1434</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
 </div>

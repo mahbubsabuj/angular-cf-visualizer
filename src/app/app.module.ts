@@ -29,11 +29,21 @@ import { ContextMenuModule } from 'primeng/contextmenu';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { MinuteSecondsPipe } from './Pipes/minute-seconds.pipe';
+import { MinuteSecondsPipe } from './pipes/minute-seconds.pipe';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { CardModule } from 'primeng/card';
 import { SubmissionStatsTableComponent } from './components/submission-stats-table/submission-stats-table.component';
 import { ContestStatsTableComponent } from './components/contest-stats-table/contest-stats-table.component';
+import { VerdictComponent } from './components/verdict/verdict.component';
+import { LanguageComponent } from './components/language/language.component';
+import { TagComponent } from './components/tag/tag.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { LevelComponent } from './components/level/level.component';
+import { ChartModule } from 'primeng/chart';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +57,15 @@ import { ContestStatsTableComponent } from './components/contest-stats-table/con
     MinuteSecondsPipe,
     SubmissionStatsTableComponent,
     ContestStatsTableComponent,
+    VerdictComponent,
+    LanguageComponent,
+    TagComponent,
+    RatingComponent,
+    LevelComponent,
+    BarChartComponent,
+    LineChartComponent,
+    DoughnutChartComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +91,7 @@ import { ContestStatsTableComponent } from './components/contest-stats-table/con
     ProgressBarModule,
     BrowserAnimationsModule,
     CardModule,
+    ChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

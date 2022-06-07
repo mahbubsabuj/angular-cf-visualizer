@@ -12,12 +12,12 @@ export interface IContestStats {
 }
 
 export interface ISubmissionStats {
-  problemTried: number | string;
-  problemSolved: number | string;
-  averageAttempts: number | string;
-  maxAttempts: number | string;
+  problemTried: number;
+  problemSolved: number;
+  averageAttempts: number;
+  maxAttempts: number;
   maxAttemptsProblemId: string;
-  solvedWithSingleSubmission: number | string;
-  maxAcceptedSubmissions: number | string;
+  solvedWithSingleSubmission: number;
+  maxAcceptedSubmissions: number;
   maxAcceptedSubmissionsProblemId: string;
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IRatedContest } from 'src/app/models/ratedContest.model';
-import { IContestStats } from 'src/app/models/stats.models';
 import { IUserSubmission } from 'src/app/models/submission.model';
 import { CodeforcesService } from 'src/app/services/codeforces.service';
 // import { FormsModule, NgForm } from '@angular/forms';

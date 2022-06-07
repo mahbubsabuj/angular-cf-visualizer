@@ -13,12 +13,33 @@
 <div class="grid contest-info" *ngIf="userContests && userSubmissions">
   <div class="col-12 sm:col-6">
     <div class="container">
-      <contest-stats-table [user]="user" [userContests]="userContests"></contest-stats-table>
+      <contest-stats-table
+        [user]="user"
+        [userContests]="userContests"
+      ></contest-stats-table>
     </div>
   </div>
   <div class="col-12 sm:col-6">
     <div class="container">
-      <submission-stats-table [user]="user" [userSubmissions]="userSubmissions"></submission-stats-table>
+      <submission-stats-table
+        [user]="user"
+        [userSubmissions]="userSubmissions"
+      ></submission-stats-table>
     </div>
   </div>
 </div>
+<ng-container *ngIf="userSubmissions">
+  <verdict [user]="user" [userSubmissions]="userSubmissions"></verdict>
+</ng-container>
+<ng-container *ngIf="userSubmissions">
+  <language [user]="user" [userSubmissions]="userSubmissions"></language>
+</ng-container>
+<ng-container *ngIf="userSubmissions">
+  <tag [user]="user" [userSubmissions]="userSubmissions"></tag>
+</ng-container>
+<ng-container *ngIf="userSubmissions">
+  <rating [user]="user" [userSubmissions]="userSubmissions"></rating>
+</ng-container>
+<ng-container *ngIf="userSubmissions">
+  <level [user]="user" [userSubmissions]="userSubmissions"></level>
+</ng-container>

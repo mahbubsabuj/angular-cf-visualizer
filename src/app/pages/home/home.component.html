@@ -1,4 +1,4 @@
-<div class="center">
+<div class="input-item">
   <form #input="ngForm" (submit)="handleSubmit(input.value.handle)">
     <input
       type="text"
@@ -28,12 +28,24 @@
     </div>
   </div>
 </div>
-<ng-container *ngIf="userSubmissions">
-  <verdict [user]="user" [userSubmissions]="userSubmissions"></verdict>
-</ng-container>
-<ng-container *ngIf="userSubmissions">
-  <language [user]="user" [userSubmissions]="userSubmissions"></language>
-</ng-container>
+<div class="grid contest-info" *ngIf="userContests && userSubmissions">
+  <div class="col-12  lg:col-6">
+    <div class="container">
+      <ng-container *ngIf="userSubmissions">
+        <verdict [user]="user" [userSubmissions]="userSubmissions"></verdict>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col-12 lg:col-6">
+    <div class="container">
+      <ng-container *ngIf="userSubmissions">
+        <language [user]="user" [userSubmissions]="userSubmissions"></language>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+
 <ng-container *ngIf="userSubmissions">
   <tag [user]="user" [userSubmissions]="userSubmissions"></tag>
 </ng-container>

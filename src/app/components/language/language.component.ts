@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IUserSubmission } from 'src/app/models/submission.model';
+import { PreprocessingService } from 'src/app/services/preprocessing.service';
 
 @Component({
   selector: 'language',
@@ -11,23 +12,86 @@ export class LanguageComponent implements OnInit {
   @Input() userSubmissions: IUserSubmission[] = [];
   labels: string[] = [];
   data: number[] = [];
-  constructor() {}
+  chartData: Object = {};
+  chartOptions: Object = {};
+  constructor(private preprocessingService: PreprocessingService) {}
 
   ngOnInit(): void {
-    let count: Map<string, number> = new Map<string, number>();
-    this.userSubmissions.forEach((submission) => {
-      const language: string = submission.programmingLanguage;
-      const prevCount = count.get(language);
-      if (prevCount) {
-        count.set(language, prevCount + 1);
-      } else {
-        count.set(language, 1);
-      }
-    });
+    const count = this.preprocessingService.getLanguageCount(this.userSubmissions);
     count.forEach((value, key) => {
       this.labels.push(key);
       this.data.push(value);
     });
-    console.log(this.labels, this.data);
+    this.chartData = {
+      labels: this.labels,
+      datasets: [
+        {
+          label: this.user,
+          backgroundColor: [
+            '#EC407A',
+            '#AB47BC',
+            '#42A5F5',
+            '#7E57C2',
+            '#66BB6A',
+            '#FFCA28',
+            '#26A69A',
+          ],
+          yAxisID: 'y',
+          data: this.data,
+        },
+      ],
+    };
+
+    this.chartOptions = {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: '#495057',
+          },
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: true,
+        },
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: '#495057',
+          },
+          grid: {
+            color: '#ebedef',
+          },
+        },
+        y: {
+          type: 'linear',
+          display: true,
+          position: 'left',
+          ticks: {
+            min: 0,
+            max: 100,
+            color: '#495057',
+          },
+          grid: {
+            color: '#ebedef',
+          },
+        },
+        y1: {
+          type: 'linear',
+          display: false,
+          position: 'right',
+          grid: {
+            drawOnChartArea: false,
+            color: '#ebedef',
+          },
+          ticks: {
+            min: 0,
+            max: 100,
+            color: '#495057',
+          },
+        },
+      },
+    };
   }
 }

@@ -44,6 +44,7 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
     BrowserAnimationsModule,
     CardModule,
     ChartModule,
+    NgxNavbarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

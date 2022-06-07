@@ -62,4 +62,44 @@ export class PreprocessingService {
     }, new Map<string, number>());
     return count;
   }
+  getVerdictCount(userSubmissions: IUserSubmission[]): Map<string, number> {
+    const count = userSubmissions.reduce((mp, submission) => {
+      const verdict = submission.verdict === "OK" ? "ACCEPTED" : submission.verdict;
+      const prevCount = mp.get(verdict);
+      if (prevCount) {
+        mp.set(verdict, prevCount + 1);
+      } else {
+        mp.set(verdict, 1);
+      }
+      return mp;
+    }, new Map<string, number>());
+    return count;
+  }
+  getLanguageCount(userSubmissions: IUserSubmission[]): Map<string, number> {
+    const count = userSubmissions.reduce((mp, submission) => {
+      const language = submission.programmingLanguage;
+      const prevCount = mp.get(language);
+      if (prevCount) {
+        mp.set(language, prevCount + 1);
+      } else {
+        mp.set(language, 1);
+      }
+      return mp;
+    }, new Map<string, number>())
+    return count;
+  }
+  getLevelCount(userSubmissions: IUserSubmission[]): Map<string, number> {
+    const filtered = this.getAcceptedProblems(userSubmissions);
+    const count = filtered.reduce((mp, submission) => {
+      const level = submission.problem.index;
+      const prevCount = mp.get(level);
+      if (prevCount) {
+        mp.set(level, prevCount + 1);
+      } else {
+        mp.set(level, 1);
+      }
+      return mp;
+    }, new Map<string, number>());
+    return count;
+  }
 }

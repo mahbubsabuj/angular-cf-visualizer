@@ -1,5 +1,6 @@
 <div class="input-item">
   <form #input="ngForm" (submit)="handleSubmit(input.value.handle)">
+    <div class="p-input-filled">
     <input
       type="text"
       pInputText
@@ -7,6 +8,7 @@
       name="handle"
       ngModel
     />
+  </div>
   </form>
 </div>
 

@@ -12,8 +12,7 @@ export class RatingComponent implements OnInit {
   @Input() userSubmissions: IUserSubmission[] = [];
   labels: string[] = [];
   data: number[] = [];
-  chartData: Object = {};
-  chartOptions: Object = {};
+  title: string = '';
   constructor(private preprocessingService: PreprocessingService) {}
 
   ngOnInit(): void {
@@ -24,76 +23,6 @@ export class RatingComponent implements OnInit {
       this.labels.push(key);
       this.data.push(value);
     });
-    this.chartData = {
-      labels: this.labels,
-      datasets: [
-        {
-          label: this.user,
-          backgroundColor: [
-            '#EC407A',
-            '#AB47BC',
-            '#42A5F5',
-            '#7E57C2',
-            '#66BB6A',
-            '#FFCA28',
-            '#26A69A',
-          ],
-          yAxisID: 'y',
-          data: this.data,
-        },
-      ],
-    };
-
-    this.chartOptions = {
-      responsive: true,
-      plugins: {
-        legend: {
-          labels: {
-            color: '#495057',
-          },
-        },
-        tooltips: {
-          mode: 'index',
-          intersect: true,
-        },
-      },
-      scales: {
-        x: {
-          ticks: {
-            color: '#495057',
-          },
-          grid: {
-            color: '#ebedef',
-          },
-        },
-        y: {
-          type: 'linear',
-          display: true,
-          position: 'left',
-          ticks: {
-            min: 0,
-            max: 100,
-            color: '#495057',
-          },
-          grid: {
-            color: '#ebedef',
-          },
-        },
-        y1: {
-          type: 'linear',
-          display: false,
-          position: 'right',
-          grid: {
-            drawOnChartArea: false,
-            color: '#ebedef',
-          },
-          ticks: {
-            min: 0,
-            max: 100,
-            color: '#495057',
-          },
-        },
-      },
-    };
+    this.title = 'Problem ratings of ' + this.user;
   }
 }

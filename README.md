@@ -7,3 +7,5 @@ A codeforces visualizer for visualizing codeforces profile, compare profiles and
 - Visualize a single profile
 - Compare Profiles
 - Get contest updates
+
+Live : https://cfprofile-vis.netlify.app/

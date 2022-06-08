@@ -1,7 +1,6 @@
-<div class="tab-items">
+<div class="tab-items" *ngIf="runningContests && futureContests">
   <p-tabView (onChange)="getSiteContests($event)" [scrollable]="true">
     <p-tabPanel
-      style="background-color: black"
       [header]="site"
       *ngFor="let site of sites; let i = index"
       [selected]="i == 0"

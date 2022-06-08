@@ -1,49 +1,36 @@
-<!-- <div class="container">
-  <div class="grid">
-    <div class="col-12">
-      <input
-        type="text"
-        pInputText
-        placeholder="Handle 1"
-        name="handle"
-        ngModel
-      />
-    </div>
-    <div class="col-12">
-      <input
-        type="text"
-        pInputText
-        placeholder="Handle 2"
-        name="handle"
-        ngModel
-      />
-    </div>
-  </div>
-</div> -->
-
-<div class="container">
-  <div class="p-fluid grid">
-    <div class="field col-12 md:col-6">
-      <div class="p-input-filled">
-        <input
-          type="text"
-          pInputText
-          placeholder="Handle 1"
-          name="handle"
-          ngModel
-        />
+<form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
+  <div class="container">
+    <div class="p-fluid grid">
+      <div class="field col-12 md:col-6">
+        <div class="p-input-filled">
+          <input
+            type="text"
+            pInputText
+            placeholder="Handle 1"
+            formControlName="cfHandle1"
+          />
+        </div>
+      </div>
+      <div class="field col-12 md:col-6">
+        <div class="p-input-filled">
+          <input
+            type="text"
+            pInputText
+            placeholder="Handle 2"
+            formControlName="cfHandle2"
+          />
+        </div>
       </div>
     </div>
-    <div class="field col-12 md:col-6">
-        <div class="p-input-filled">
-            <input
-              type="text"
-              pInputText
-              placeholder="Handle 2"
-              name="handle"
-              ngModel
-            />
-          </div>
-    </div>
   </div>
-</div>
+
+  <div class="compare-button">
+    <button
+      pButton
+      type="submit"
+      label="Compare"
+      icon="pi pi-arrows-h"
+      class="p-button-sm p-button-raised p-button-danger"
+    ></button>
+  </div>
+</form>

@@ -20,19 +20,19 @@ export class HomeComponent implements OnInit {
   ) {}
   ngOnInit(): void {}
   handleSubmit(cfHandle: string) {
-    const toastId = this.toast.loading('Fetching...');
+    this.toast.loading('Fetching...');
     this.userContests = null;
     this.userSubmissions = null;
     this.user = cfHandle;
     this.codeforcesService.getUserSubmission(cfHandle).subscribe({
       next: (response: IUserSubmission[]) => {
         this.toast.close();
-        this.toast.success('Done!', toastId);
+        this.toast.success('Done!');
         this.userSubmissions = response;
       },
       error: (error) => {
         this.toast.close();
-        this.toast.error('Error!',toastId);
+        this.toast.error('Error!');
       },
     });
     this.codeforcesService.getUserRatedContests(cfHandle).subscribe({

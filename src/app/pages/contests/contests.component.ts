@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HotToastService } from '@ngneat/hot-toast';
 import { IContest } from 'src/app/models/contest.model';
 import { KontestsService } from 'src/app/services/kontests.service';
 
@@ -9,11 +10,14 @@ import { KontestsService } from 'src/app/services/kontests.service';
 })
 export class ContestsComponent implements OnInit {
   query: string = '';
-  sites: string[] = ['All'];
+  sites: string[] = [];
   contests: IContest[] = [];
   futureContests: IContest[] | null = null;
   runningContests: IContest[] | null = null;
-  constructor(private kontestService: KontestsService) {}
+  constructor(
+    private kontestService: KontestsService,
+    private toast: HotToastService
+  ) {}
 
   ngOnInit(): void {
     const date = localStorage.getItem('date');
@@ -24,36 +28,47 @@ export class ContestsComponent implements OnInit {
       const data: string | null = localStorage.getItem('contests');
       if (data) {
         this.contests = JSON.parse(data);
+        this.setContests();
       } else {
         this.getContests();
       }
     }
-    if (this.contests) {
-      this.sites = this.sites.concat(
-        this.contests
-          .map((contest: IContest) => contest.site)
-          .filter((value: string, index: number, self: string[]) => {
-            return self.indexOf(value) === index;
-          })
-      );
-      this.futureContests = this.contests.filter((contest: IContest) => {
-        return contest.status !== 'CODING';
-      });
-      this.runningContests = this.contests.filter((contest: IContest) => {
-        return contest.status === 'CODING';
-      });
-    }
+  }
+  setContests() {
+    
+    this.sites = [];
+    this.sites.push('All');
+    
+    this.sites = this.sites.concat(
+      this.contests
+        .map((contest: IContest) => contest.site)
+        .filter((value: string, index: number, self: string[]) => {
+          return self.indexOf(value) === index;
+        })
+    );
+    this.futureContests = this.contests.filter((contest: IContest) => {
+      return contest.status !== 'CODING';
+    });
+    this.runningContests = this.contests.filter((contest: IContest) => {
+      return contest.status === 'CODING';
+    });
+    console.log(this.sites)
   }
   getContests() {
+    this.toast.loading('Fetching...');
     this.kontestService.getContests().subscribe({
       next: (response: IContest[]) => {
+        this.toast.close();
+        this.toast.success('Done!');
         this.contests = response;
         const date = new Date().toDateString();
         localStorage.setItem('date', date);
         localStorage.setItem('contests', JSON.stringify(response));
+        this.setContests();
       },
       error: (error) => {
-        console.log(error);
+        this.toast.close();
+        this.toast.error('Error!');
       },
     });
   }

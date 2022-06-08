@@ -22,7 +22,7 @@ body .p-component {
   font-size: 14px;
 }
 
-.app-icon {
+.material-icon {
   font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
@@ -47,6 +47,66 @@ body .p-component {
   font-feature-settings: "liga";
 }
 
+@mixin use-md-icon($icon) {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+  &:before {
+    content: $icon;
+  }
+}
+
+.pi-moon {
+  @include use-md-icon('dark_mode')
+}
+
+.pi-sun {
+  @include use-md-icon('light_mode')
+}
+
+.pi-custom-icon-test {
+  @include use-md-icon('chair')
+}
+
+.home {
+  @include use-md-icon('cottage')
+}
+
+.contests {
+  @include use-md-icon('psychology')
+}
+
+.compare_arrows {
+  @include use-md-icon('compare_arrows');
+}
+
+.compare {
+  @include use-md-icon('compare');
+}
+
+.nothing {
+  @include use-md-icon('disabled_by_default');
+}
+
 .grid {
   width: 100%;
   padding: 10px;
@@ -61,15 +121,3 @@ h1 {
   width: 100%;
   padding: 10px;
 }
-
-
-// .ui-menubar-root-list {
-//   padding-left: 200px;
-// }
-
-// img#logo {
-//   position: absolute;
-//   left: 10px;
-//   height: 33px;
-//   width: 129px;;
-// }

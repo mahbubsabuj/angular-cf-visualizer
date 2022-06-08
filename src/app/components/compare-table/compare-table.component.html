@@ -1,0 +1,99 @@
+<ng-container
+  *ngIf="
+    userContestStats1 &&
+    userContestStats2 &&
+    userSubmissionStats1 &&
+    userSubmissionStats2
+  "
+>
+  <p-table [value]="[{}]" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Stats of</th>
+        <th>
+          <a href="https://codeforces.com/profile/{{ handle1 }}">{{
+            handle1
+          }}</a>
+        </th>
+        <th>
+          <a href="https://codeforces.com/profile/{{ handle2 }}">{{
+            handle2
+          }}</a>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body">
+      <tr>
+        <td>Number of contests (rated)</td>
+        <td><td-container [data1]="userContestStats1.contestCount"></td-container></td>
+        <td><td-container [data1]="userContestStats2.contestCount"></td-container></td>
+      </tr>
+      <tr>
+        <td>Best rank</td>
+        <td><td-container
+          [data1]="userContestStats1.bestRank"
+          [data2]="userContestStats1.bestRankContestId"
+          linkPrefix="."
+        ></td-container></td>
+        <td><td-container
+          [data1]="userContestStats2.bestRank"
+          [data2]="userContestStats2.bestRankContestId"
+          linkPrefix="."
+        ></td-container></td>
+      </tr>
+      <tr>
+        <td>Worst rank</td>
+        <td><td-container
+          [data1]="userContestStats1.worstRank"
+          [data2]="userContestStats1.worstRankContestId"
+          linkPrefix="."
+        ></td-container></td>
+        <td><td-container
+          [data1]="userContestStats2.worstRank"
+          [data2]="userContestStats2.worstRankContestId"
+          linkPrefix="."
+        ></td-container></td>
+      </tr>
+      <tr>
+        <td>Max up</td>
+        <td><td-container
+          [data1]="userContestStats1.maxUp"
+          [data2]="userContestStats1.maxUpContestId"
+          linkPrefix="."
+        ></td-container></td>
+        <td><td-container
+          [data1]="userContestStats2.maxUp"
+          [data2]="userContestStats2.maxUpContestId"
+          linkPrefix="."
+        ></td-container></td>
+      </tr>
+      <tr>
+        <td>Max down</td>
+        <td><td-container
+          [data1]="userContestStats1.maxDown"
+          [data2]="userContestStats1.maxDownContestId"
+          linkPrefix="."
+        ></td-container></td>
+        <td>
+        <td-container
+          [data1]="userContestStats2.maxDown"
+          [data2]="userContestStats2.maxDownContestId"
+          linkPrefix="."
+        ></td-container></td>
+      </tr>
+      <tr>
+        <td>Current rating</td>
+        <td>
+          <td-container
+            [data1]="userContestStats1.currentRating"
+          ></td-container>
+        </td>
+        <td>
+          <td-container
+            [data1]="userContestStats2.currentRating"
+          ></td-container>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</ng-container>

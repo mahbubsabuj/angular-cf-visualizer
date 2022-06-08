@@ -45,6 +45,8 @@ import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-cha
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import {BadgeModule} from 'primeng/badge';
+import { CompareTableComponent } from './components/compare-table/compare-table.component';
+import { TdComponent } from './components/td/td.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import {BadgeModule} from 'primeng/badge';
     LineChartComponent,
     DoughnutChartComponent,
     PieChartComponent,
+    CompareTableComponent,
+    TdComponent,
   ],
   imports: [
     BrowserModule,

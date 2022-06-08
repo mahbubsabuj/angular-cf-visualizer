@@ -1,14 +1,14 @@
 export interface IContestStats {
-  contestCount: number | string;
-  bestRank: number | string;
-  worstRank: number | string;
-  bestRankContestId: number | string;
-  worstRankContestId: number | string;
-  maxUp: number | string;
-  maxDown: number | string;
-  maxUpContestId: number | string;
-  maxDownContestId: number | string;
-  currentRating: number | string;
+  contestCount: number | null;
+  bestRank: number | null;
+  worstRank: number | null;
+  bestRankContestId: number | null;
+  worstRankContestId: number | null;
+  maxUp: number | null;
+  maxDown: number | null;
+  maxUpContestId: number | null;
+  maxDownContestId: number | null;
+  currentRating: number | null;
 }
 
 export interface ISubmissionStats {

@@ -16,17 +16,17 @@ export class HeaderComponent implements OnInit {
     this.items = [
       {
         label: 'Home',
-        icon: 'pi pi-fw pi-home',
+        icon: 'pi pi-fw home',
         routerLink: '/',
       },
       {
         label: 'Contests',
-        icon: 'pi pi-fw pi-code',
+        icon: 'pi pi-fw contests',
         routerLink: 'contests',
       },
       {
         label: 'Compare',
-        icon: 'pi pi-fw pi-arrows-h',
+        icon: 'pi pi-fw compare_arrows',
         routerLink: 'compare',
       },
     ];

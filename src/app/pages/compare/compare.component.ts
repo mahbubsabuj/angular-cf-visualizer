@@ -18,11 +18,11 @@ import { CodeforcesService } from 'src/app/services/codeforces.service';
 export class CompareComponent implements OnInit {
   handle1: string = '';
   handle2: string = '';
-  value1: string = '';
-  userSubmissions1: IUserSubmission[] = [];
-  userSubmissions2: IUserSubmission[] = [];
-  userRatedContestsInfo1: IRatedContest[] = [];
-  userRatedContestsInfo2: IRatedContest[] = [];
+
+  userSubmissions1: IUserSubmission[] | null = null;
+  userSubmissions2: IUserSubmission[] | null = null;
+  userRatedContestsInfo1: IRatedContest[] | null = null;
+  userRatedContestsInfo2: IRatedContest[] | null = null;
   userForm = new FormGroup({
     cfHandle1: new FormControl('', Validators.required),
     cfHandle2: new FormControl('', Validators.required),
@@ -46,54 +46,53 @@ export class CompareComponent implements OnInit {
     this.toast.success('Done!');
   }
   handleSubmit(): void {
+    this.userSubmissions1 = null;
+    this.userSubmissions2 = null;
+    this.userRatedContestsInfo1 = null;
+    this.userRatedContestsInfo2 = null;
     if (this.userForm.status === 'VALID') {
+      this.handle1 = this.userForm.value.cfHandle1;
+      this.handle2 = this.userForm.value.cfHandle2;
       this.toast.loading('Fetching...');
-      this.codeforcesService
-        .getUserSubmission(this.userForm.value.cfHandle1)
-        .subscribe({
-          next: (response: IUserSubmission[]) => {
-            this.showSucessToast();
-            this.userSubmissions1 = response;
-          },
-          error: (error) => {
-            this.showErrorToast(error);
-          },
-        });
-      this.codeforcesService
-        .getUserSubmission(this.userForm.value.cfHandle2)
-        .subscribe({
-          next: (response: IUserSubmission[]) => {
-            this.showSucessToast();
-            this.userSubmissions2 = response;
-          },
-          error: (error) => {
-            this.showErrorToast(error);
-          },
-        });
-      this.codeforcesService
-        .getUserRatedContests(this.userForm.value.cfHandle1)
-        .subscribe({
-          next: (response: IRatedContest[]) => {
-            this.showSucessToast();
-            this.userRatedContestsInfo2 = response;
-          },
-          error: (error) => {
-            this.showErrorToast(error);
-          },
-        });
-      this.codeforcesService
-        .getUserRatedContests(this.userForm.value.cfHandle2)
-        .subscribe({
-          next: (response: IRatedContest[]) => {
-            this.showSucessToast();
-            this.userRatedContestsInfo2 = response;
-          },
-          error: (error) => {
-            this.showErrorToast(error);
-          },
-        });
+      this.codeforcesService.getUserSubmission(this.handle1).subscribe({
+        next: (response: IUserSubmission[]) => {
+          this.showSucessToast();
+          this.userSubmissions1 = response;
+        },
+        error: (error) => {
+          this.showErrorToast(error);
+        },
+      });
+      this.codeforcesService.getUserSubmission(this.handle2).subscribe({
+        next: (response: IUserSubmission[]) => {
+          this.showSucessToast();
+          this.userSubmissions2 = response;
+        },
+        error: (error) => {
+          this.showErrorToast(error);
+        },
+      });
+      this.codeforcesService.getUserRatedContests(this.handle1).subscribe({
+        next: (response: IRatedContest[]) => {
+          this.showSucessToast();
+          this.userRatedContestsInfo1 = response;
+        },
+        error: (error) => {
+          this.showErrorToast(error);
+        },
+      });
+      this.codeforcesService.getUserRatedContests(this.handle2).subscribe({
+        next: (response: IRatedContest[]) => {
+          this.showSucessToast();
+          this.userRatedContestsInfo2 = response;
+        },
+        error: (error) => {
+          this.showErrorToast(error);
+        },
+      });
     } else {
       this.toast.warning('Enter both handles');
+      this.handle1 = this.handle2 = '';
     }
   }
 }

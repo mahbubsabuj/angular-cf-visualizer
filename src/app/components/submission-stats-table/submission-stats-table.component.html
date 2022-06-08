@@ -11,36 +11,55 @@
     <ng-template pTemplate="body">
       <tr>
         <td>Problem Tried</td>
-        <td>{{ submissionTableInfo.problemTried }}</td>
+        <td>
+          <td-container
+            [data1]="submissionTableInfo.problemTried"
+          ></td-container>
+        </td>
       </tr>
       <tr>
         <td>Problem Solved</td>
-        <td>{{ submissionTableInfo.problemSolved }}</td>
+        <td>
+          <td-container
+            [data1]="submissionTableInfo.problemSolved"
+          ></td-container>
+        </td>
       </tr>
       <tr>
         <td>Average attempts</td>
-        <td>{{ submissionTableInfo.averageAttempts }}</td>
+        <td>
+          <td-container
+            [data1]="submissionTableInfo.averageAttempts"
+          ></td-container>
+        </td>
       </tr>
       <tr>
         <td>Max attempts</td>
         <td>
-          {{ submissionTableInfo.maxAttempts }}(<a href="">{{
-            submissionTableInfo.maxAttemptsProblemId
-          }}</a
-          >)
+          <td-container
+            [data1]="submissionTableInfo.maxAttempts"
+            [data2]="submissionTableInfo.maxAttemptsProblemId"
+            linkPrefix="."
+          ></td-container>
         </td>
       </tr>
       <tr>
         <td>Solved with one submission</td>
-        <td>{{ submissionTableInfo.solvedWithSingleSubmission }}</td>
+
+        <td>
+          <td-container
+            [data1]="submissionTableInfo.solvedWithSingleSubmission"
+          ></td-container>
+        </td>
       </tr>
       <tr>
         <td>Max accepted submissions</td>
         <td>
-          {{ submissionTableInfo.maxAcceptedSubmissions }}(<a href="">{{
-            submissionTableInfo.maxAcceptedSubmissionsProblemId
-          }}</a
-          >)
+          <td-container
+            [data1]="submissionTableInfo.maxAcceptedSubmissions"
+            [data2]="submissionTableInfo.maxAcceptedSubmissionsProblemId"
+            linkPrefix="."
+          ></td-container>
         </td>
       </tr>
     </ng-template>

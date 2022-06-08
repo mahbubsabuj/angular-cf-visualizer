@@ -1,0 +1,13 @@
+<ng-container *ngIf="data1 && data2 && linkPrefix">
+  <div class="p-d-flex p-jc-between p-ai-center">
+    <a href="{{ linkPrefix }}/{{ data2 }}">{{ data2 }}</a>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="data1 && !data2">
+  <div class="p-d-flex p-jc-between p-ai-center">{{ data1 }}</div>
+</ng-container>
+
+<ng-container *ngIf="!data1">
+  <div class="p-d-flex p-jc-between p-ai-center">N/A</div>
+</ng-container>

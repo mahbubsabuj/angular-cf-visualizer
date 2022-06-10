@@ -29,6 +29,19 @@
         <td><td-container [data1]="userContestStats2.contestCount"></td-container></td>
       </tr>
       <tr>
+        <td>Current rating</td>
+        <td>
+          <td-container
+            [data1]="userContestStats1.currentRating"
+          ></td-container>
+        </td>
+        <td>
+          <td-container
+            [data1]="userContestStats2.currentRating"
+          ></td-container>
+        </td>
+      </tr>
+      <tr>
         <td>Best rank</td>
         <td><td-container
           [data1]="userContestStats1.bestRank"
@@ -81,19 +94,7 @@
           linkPrefix="."
         ></td-container></td>
       </tr>
-      <tr>
-        <td>Current rating</td>
-        <td>
-          <td-container
-            [data1]="userContestStats1.currentRating"
-          ></td-container>
-        </td>
-        <td>
-          <td-container
-            [data1]="userContestStats2.currentRating"
-          ></td-container>
-        </td>
-      </tr>
+      
     </ng-template>
   </p-table>
 </ng-container>

@@ -35,7 +35,6 @@ export class ContestsComponent implements OnInit {
     }
   }
   setContests() {
-    
     this.sites = [];
     this.sites.push('All');
     

@@ -10,29 +10,48 @@ export class BarChartComponent implements OnInit {
   chartOptions: Object = {};
   @Input() labels: string[] = [];
   @Input() data: number[] = [];
+  @Input() data2: number[] = [];
   @Input() title: string = '';
   @Input() user: string = '';
+  @Input() user2: string = '';
   constructor() {}
 
   ngOnInit(): void {
+    let datasets = [
+      {
+        label: this.user,
+        backgroundColor: [
+          '#EC407A',
+          '#AB47BC',
+          '#42A5F5',
+          '#7E57C2',
+          '#66BB6A',
+          '#FFCA28',
+          '#26A69A',
+        ],
+        yAxisID: 'y',
+        data: this.data,
+      },
+    ];
+    if (this.data2.length) {
+      datasets.push({
+        label: this.user2,
+        backgroundColor: [
+          '#EC407A',
+          '#AB47BC',
+          '#42A5F5',
+          '#7E57C2',
+          '#66BB6A',
+          '#FFCA28',
+          '#26A69A',
+        ],
+        yAxisID: 'y',
+        data: this.data2,
+      });
+    }
     this.chartData = {
       labels: this.labels,
-      datasets: [
-        {
-          label: this.user,
-          backgroundColor: [
-            '#EC407A',
-            '#AB47BC',
-            '#42A5F5',
-            '#7E57C2',
-            '#66BB6A',
-            '#FFCA28',
-            '#26A69A',
-          ],
-          yAxisID: 'y',
-          data: this.data,
-        },
-      ],
+      datasets: datasets,
     };
     this.chartOptions = {
       responsive: true,
@@ -55,20 +74,6 @@ export class BarChartComponent implements OnInit {
           intersect: true,
         },
       },
-      // plugins: {
-      //   title: {
-      //     display: true,
-      //     text: title,
-      //     color: color,
-      //   },
-      //   legend: {
-      //     display: true,
-      //     position: "bottom",
-      //     labels: {
-      //       color: color,
-      //     },
-      //   },
-      // },
       scales: {
         x: {
           ticks: {

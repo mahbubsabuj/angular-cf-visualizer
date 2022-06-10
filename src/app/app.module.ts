@@ -14,7 +14,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TabViewModule } from 'primeng/tabview';
-
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TableModule } from 'primeng/table';
@@ -47,6 +46,7 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import {BadgeModule} from 'primeng/badge';
 import { CompareTableComponent } from './components/compare-table/compare-table.component';
 import { TdComponent } from './components/td/td.component';
+import { CompareChartsComponent } from './components/compare-charts/compare-charts.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +71,7 @@ import { TdComponent } from './components/td/td.component';
     PieChartComponent,
     CompareTableComponent,
     TdComponent,
+    CompareChartsComponent,
   ],
   imports: [
     BrowserModule,

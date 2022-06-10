@@ -18,7 +18,6 @@ import { CodeforcesService } from 'src/app/services/codeforces.service';
 export class CompareComponent implements OnInit {
   handle1: string = '';
   handle2: string = '';
-
   userSubmissions1: IUserSubmission[] | null = null;
   userSubmissions2: IUserSubmission[] | null = null;
   userRatedContestsInfo1: IRatedContest[] | null = null;

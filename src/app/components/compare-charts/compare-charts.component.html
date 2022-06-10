@@ -1,0 +1,54 @@
+<div class="grid">
+  <div
+    class="col-12 sm:col-6 md:col-4 lg:col-3"
+    *ngIf="triedVsSolvedUser1 && triedVsSolvedUser2"
+  >
+    <bar-chart
+      [labels]="triedVsSolvedLabels"
+      [data]="triedVsSolvedUser1"
+      [data2]="triedVsSolvedUser2"
+      title="Tried vs Accepted of {{ handle1 }} & {{ handle2 }}"
+      [user]="handle1"
+      [user2]="handle2"
+    ></bar-chart>
+  </div>
+  <div
+    class="col-12 sm:col-6 md:col-4 lg:col-3"
+    *ngIf="avgAttemptsUser1 && avgAttemptsUser2"
+  >
+    <bar-chart
+      [labels]="avgLabel"
+      [data]="avgAttemptsUser1"
+      [data2]="avgAttemptsUser2"
+      title="Average Attempt of {{ handle1 }} & {{ handle2 }}"
+      [user]="handle1"
+      [user2]="handle2"
+    ></bar-chart>
+  </div>
+  <div
+    class="col-12 sm:col-6 md:col-4 lg:col-3"
+    *ngIf="maxTriedCountUser1 && maxTriedCountUser2"
+  >
+    <bar-chart
+      [labels]="maxTriedLabel"
+      [data]="maxTriedCountUser1"
+      [data2]="maxTriedCountUser2"
+      title="Max tried count of {{ handle1 }} & {{ handle2 }}"
+      [user]="handle1"
+      [user2]="handle2"
+    ></bar-chart>
+  </div>
+  <div
+    class="col-12 sm:col-6 md:col-4 lg:col-3"
+    *ngIf="maxAcceptedOnSingleProblemUser1 && maxAcceptedOnSingleProblemUser2"
+  >
+    <bar-chart
+      [labels]="maxAcceptedLabel"
+      [data]="maxAcceptedOnSingleProblemUser1"
+      [data2]="maxAcceptedOnSingleProblemUser2"
+      title="Max accepted on a single problem of {{ handle1 }} & {{ handle2 }}"
+      [user]="handle1"
+      [user2]="handle2"
+    ></bar-chart>
+  </div>
+</div>

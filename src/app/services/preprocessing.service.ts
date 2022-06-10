@@ -7,7 +7,6 @@ import { IUserSubmission } from '../models/submission.model';
 @Injectable({
   providedIn: 'root',
 })
-
 export class PreprocessingService {
   constructor() {}
   getAcceptedProblems(userSubmissions: IUserSubmission[]) {
@@ -66,7 +65,8 @@ export class PreprocessingService {
   }
   getVerdictCount(userSubmissions: IUserSubmission[]): Map<string, number> {
     const count = userSubmissions.reduce((mp, submission) => {
-      const verdict = submission.verdict === "OK" ? "ACCEPTED" : submission.verdict;
+      const verdict =
+        submission.verdict === 'OK' ? 'ACCEPTED' : submission.verdict;
       const prevCount = mp.get(verdict);
       if (prevCount) {
         mp.set(verdict, prevCount + 1);
@@ -87,7 +87,7 @@ export class PreprocessingService {
         mp.set(language, 1);
       }
       return mp;
-    }, new Map<string, number>())
+    }, new Map<string, number>());
     return count;
   }
   getLevelCount(userSubmissions: IUserSubmission[]): Map<string, number> {
@@ -104,7 +104,7 @@ export class PreprocessingService {
     }, new Map<string, number>());
     return count;
   }
-  getUserContestStats(userContests: IRatedContest[]) {
+  getUserContestStats(userContests: IRatedContest[]): IContestStats {
     let contestStats: IContestStats = {
       contestCount: 0,
       bestRank: Number.MAX_SAFE_INTEGER,
@@ -158,7 +158,7 @@ export class PreprocessingService {
     }
     return contestStats;
   }
-  getUserSubmissionStats(userSubmissions: IUserSubmission[]) {
+  getUserSubmissionStats(userSubmissions: IUserSubmission[]): ISubmissionStats {
     let submissionStats: ISubmissionStats = {
       problemTried: 0,
       problemSolved: 0,
@@ -216,4 +216,5 @@ export class PreprocessingService {
     });
     return submissionStats;
   }
+  getCommonProblemsCount() {}
 }

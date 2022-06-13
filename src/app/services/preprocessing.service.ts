@@ -216,5 +216,7 @@ export class PreprocessingService {
     });
     return submissionStats;
   }
-  getCommonProblemsCount() {}
+  getCommonProblemsCount(userSubmissions1: IUserSubmission[], userSubmissions2: IUserSubmission) {
+    
+  }
 }

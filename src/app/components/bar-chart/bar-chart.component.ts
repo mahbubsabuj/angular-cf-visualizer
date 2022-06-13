@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { colors1, colors2 } from 'src/app/constants/colors.constant';
 
 @Component({
   selector: 'bar-chart',
@@ -20,15 +21,7 @@ export class BarChartComponent implements OnInit {
     let datasets = [
       {
         label: this.user,
-        backgroundColor: [
-          '#EC407A',
-          '#AB47BC',
-          '#42A5F5',
-          '#7E57C2',
-          '#66BB6A',
-          '#FFCA28',
-          '#26A69A',
-        ],
+        backgroundColor: colors2,
         yAxisID: 'y',
         data: this.data,
       },
@@ -36,15 +29,7 @@ export class BarChartComponent implements OnInit {
     if (this.data2.length) {
       datasets.push({
         label: this.user2,
-        backgroundColor: [
-          '#EC407A',
-          '#AB47BC',
-          '#42A5F5',
-          '#7E57C2',
-          '#66BB6A',
-          '#FFCA28',
-          '#26A69A',
-        ],
+        backgroundColor: colors1,
         yAxisID: 'y',
         data: this.data2,
       });
@@ -59,7 +44,7 @@ export class BarChartComponent implements OnInit {
         title: {
           display: true,
           text: this.title,
-          color: 'var(--text-color)',
+          // color: 'var(--text-color)',
         },
         legend: {
           display: false,

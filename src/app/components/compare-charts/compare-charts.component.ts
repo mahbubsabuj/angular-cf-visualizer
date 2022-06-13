@@ -39,25 +39,46 @@ export class CompareChartsComponent implements OnInit {
   solvedWithSingleSubmissionUser1: number[] | null = null;
   solvedWithSingleSubmissionUser2: number[] | null = null;
   solvedWithSingleSubmissionLabel: string[] = ['Solved with single submission'];
-  
+
   commonProblemsTriedvSolvedUser1: number[] | null = null;
   commonProblemsTriedvSolvedUser2: number[] | null = null;
   commonProblemsTriedvSolvedLabel: string[] = ['Tried', 'Accepted'];
   constructor(private preprocessingService: PreprocessingService) {}
 
   ngOnInit(): void {
-    const submissionStatUser1 = this.preprocessingService.getUserSubmissionStats(this.userSubmissions1);
-    const submissionStatUser2 = this.preprocessingService.getUserSubmissionStats(this.userSubmissions2);
-    this.triedVsSolvedUser1 = [submissionStatUser1.problemTried, submissionStatUser1.problemSolved];
-    this.triedVsSolvedUser2 = [submissionStatUser2.problemTried, submissionStatUser2.problemSolved];
+    const submissionStatUser1 =
+      this.preprocessingService.getUserSubmissionStats(this.userSubmissions1);
+    const submissionStatUser2 =
+      this.preprocessingService.getUserSubmissionStats(this.userSubmissions2);
+    this.triedVsSolvedUser1 = [
+      submissionStatUser1.problemTried,
+      submissionStatUser1.problemSolved,
+    ];
+    this.triedVsSolvedUser2 = [
+      submissionStatUser2.problemTried,
+      submissionStatUser2.problemSolved,
+    ];
     this.avgAttemptsUser1 = [submissionStatUser1.averageAttempts];
     this.avgAttemptsUser2 = [submissionStatUser2.averageAttempts];
     this.maxTriedCountUser1 = [submissionStatUser1.maxAttempts];
     this.maxTriedCountUser2 = [submissionStatUser2.maxAttempts];
-    this.maxAcceptedOnSingleProblemUser1 = [submissionStatUser1.maxAcceptedSubmissions];
-    this.maxAcceptedOnSingleProblemUser2 = [submissionStatUser2.maxAcceptedSubmissions];
-    this.solvedWithSingleSubmissionUser1 = [submissionStatUser1.solvedWithSingleSubmission];
-    this.solvedWithSingleSubmissionUser2 = [submissionStatUser2.solvedWithSingleSubmission];
-
+    this.maxAcceptedOnSingleProblemUser1 = [
+      submissionStatUser1.maxAcceptedSubmissions,
+    ];
+    this.maxAcceptedOnSingleProblemUser2 = [
+      submissionStatUser2.maxAcceptedSubmissions,
+    ];
+    this.solvedWithSingleSubmissionUser1 = [
+      submissionStatUser1.solvedWithSingleSubmission,
+    ];
+    this.solvedWithSingleSubmissionUser2 = [
+      submissionStatUser2.solvedWithSingleSubmission,
+    ];
+    this.unsolvedUser1 = [
+      submissionStatUser1.problemTried - submissionStatUser1.problemSolved,
+    ];
+    this.unsolvedUser2 = [
+      submissionStatUser2.problemTried - submissionStatUser2.problemSolved,
+    ];
   }
 }
